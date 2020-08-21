@@ -1,4 +1,4 @@
 # TCC-chatbot
  repositório 1 teste
  
- Criado por Giovanne
+ Criado por Giovanne Espindola
