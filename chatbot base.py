@@ -1,4 +1,3 @@
-import nltk
 from nltk.chat.util import Chat, reflections
 reflections_pt = {'eu': 'você',
                   'eu sou': 'você é',

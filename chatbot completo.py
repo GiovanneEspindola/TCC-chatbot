@@ -88,11 +88,11 @@ def responder(texto_usuario):
     return resposta_chatbot
 continuar = True
 print('Olá, sou um chatbot e vou responder perguntas sobre inteligência artificial: ')
-while (continuar == True):
+while continuar == True:
   texto_usuario = input()
   texto_usuario = texto_usuario.lower()
-  if (texto_usuario != 'sair'):
-    if (responder_saudacao(texto_usuario) != None):
+  if texto_usuario != 'sair':
+    if responder_saudacao(texto_usuario) != None:
       print('Chatbot: ' + responder_saudacao(texto_usuario))
     else:
       print('Chatbot: ')
