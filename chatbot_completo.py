@@ -8,10 +8,10 @@ import random
 import string
 import spacy
 
-dados = urllib.request.urlopen('https://tecnoblog.net/263808/o-que-e-inteligencia-artificial/')
+'''dados = urllib.request.urlopen('https://tecnoblog.net/263808/o-que-e-inteligencia-artificial/')
 dados = dados.read()
 
-dados_html = bs.BeautifulSoup(dados, 'lxml')
+dados_html = bs.BeautifulSoup(dados, 'lxml')'''
 
 
 def read_file(fpath):
@@ -19,7 +19,7 @@ def read_file(fpath):
     retorna str
     '''
     with open(fpath) as f:
-        text = f.readlines()
+        text = f.read()
     return text
 
 def read_dir(directory):
@@ -33,8 +33,9 @@ def read_dir(directory):
         textos = textos + read_file(path)
     return textos
 
-paragrafos = dados_html.find_all('p')
-#paragrafos = read_dir(endereco)
+#paragrafos = dados_html.find_all('p')
+path = os.path.join('respositorio', 'respostas.txt')
+paragrafos = read_dir(path)
 
 
 conteudo = ''
