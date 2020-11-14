@@ -1,17 +1,9 @@
-import bs4 as bs
-import urllib.request
 import re
-import os
 import nltk
 import numpy as np
 import random
 import string
 import spacy
-
-'''dados = urllib.request.urlopen('https://tecnoblog.net/263808/o-que-e-inteligencia-artificial/')
-dados = dados.read()
-
-dados_html = bs.BeautifulSoup(dados, 'lxml')'''
 
 
 def read_file(fpath):
@@ -22,29 +14,16 @@ def read_file(fpath):
         text = f.read()
     return text
 
-def read_dir(directory):
-    '''
-    retorna str com conteudo de todos os arquivos txt do diretorio
-    '''
-    files = os.listdir(directory)
-    textos = ''
-    for f in files:
-        path = os.path.join(directory, f)
-        textos = textos + read_file(path)
-    return textos
 
-#paragrafos = dados_html.find_all('p')
-path = os.path.join('respositorio', 'respostas.txt')
-paragrafos = read_dir(path)
-
+paragrafos = read_file('respostas.txt')
 
 conteudo = ''
 for p in paragrafos:
-  conteudo += p.text
+  conteudo += p
 conteudo = conteudo.lower()
 lista_sentencas = nltk.sent_tokenize(conteudo)
 
-pln = spacy.load('pt')
+pln = spacy.load('pt_core_news_sm')
 stop_words = spacy.lang.pt.stop_words.STOP_WORDS
 
 def preprocessamento(texto):
