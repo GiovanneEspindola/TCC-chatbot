@@ -68,7 +68,7 @@ palavras_vetorizadas.todense().shape
 
 palavras_vetorizadas[0].todense()
 cosine_similarity(palavras_vetorizadas[0], palavras_vetorizadas[1])
-cosine_similarity(palavras_vetorizadas[0], palavras_vetorizadas[3])
+cosine_similarity(palavras_vetorizadas[0], palavras_vetorizadas[2])
 similaridade = cosine_similarity(palavras_vetorizadas[0], palavras_vetorizadas)
 similaridade.argsort()
 i = similaridade.argsort()[0][-2]
