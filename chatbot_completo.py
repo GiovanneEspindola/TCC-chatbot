@@ -10,7 +10,7 @@ def read_file(fpath):
     '''
     retorna str
     '''
-    with open(fpath) as f:
+    with open(fpath, encoding="utf8") as f:
         text = f.read()
     return text
 
@@ -102,7 +102,7 @@ def responder(texto_usuario):
 
 def conversar():
     continuar = True
-    print('Olá, sou um chatbot e vou responder perguntas sobre inteligência artificial: ')
+    print('Olá, sou um chatbot e vou responder perguntas sobre o Instituto de Letras: ')
     while continuar == True:
         texto_usuario = input()
         texto_usuario = texto_usuario.lower()
