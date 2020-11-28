@@ -1,6 +1,5 @@
 import re
 import nltk
-import numpy as np
 import random
 import string
 import spacy
@@ -51,8 +50,8 @@ for i in range(len(lista_sentencas)):
 for _ in range(5):
   i = random.randint(0, len(lista_sentencas) - 1)
 
-textos_boas_vindas_entrada = ('hey', 'olá', 'opa', 'oi', 'eae')
-textos_boas_vindas_respostas = ('hey', 'olá', 'opa', 'oi', 'bem-vindo', 'como você está?')
+textos_boas_vindas_entrada = ('hey', 'olá', 'tudo bem', 'oi', 'eae')
+textos_boas_vindas_respostas = ('hey', 'olá', 'oi', 'bem-vindo', 'como você está?')
 'olá tudo bem'.split()
 
 from sklearn.feature_extraction.text import TfidfVectorizer
