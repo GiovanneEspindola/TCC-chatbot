@@ -51,7 +51,7 @@ for _ in range(5):
   i = random.randint(0, len(lista_sentencas) - 1)
 
 textos_boas_vindas_entrada = ('hey', 'olá', 'tudo bem', 'oi', 'eae')
-textos_boas_vindas_respostas = ('hey', 'olá', 'oi', 'bem-vindo', 'como você está?')
+textos_boas_vindas_respostas = ('hey', 'olá', 'oi')
 'olá tudo bem'.split()
 
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -63,7 +63,6 @@ frases_teste.append(frases_teste[0])
 vetores_palavras = TfidfVectorizer()
 palavras_vetorizadas = vetores_palavras.fit_transform(frases_teste)
 palavras_vetorizadas.todense()
-palavras_vetorizadas.todense().shape
 
 palavras_vetorizadas[0].todense()
 cosine_similarity(palavras_vetorizadas[0], palavras_vetorizadas[1])
@@ -73,10 +72,12 @@ similaridade.argsort()
 i = similaridade.argsort()[0][-2]
 i = i.flatten()
 
+
 def responder_saudacao(texto):
   for palavra in texto.split():
     if palavra.lower() in textos_boas_vindas_entrada:
       return random.choice(textos_boas_vindas_respostas)
+
 
 def responder(texto_usuario):
   resposta_chatbot = ''
@@ -93,26 +94,35 @@ def responder(texto_usuario):
   vetor_encontrado = vetor_similar[-2]
 
   if (vetor_encontrado == 0):
-    resposta_chatbot = resposta_chatbot + 'Desculpe, mas não entendi!'
+    resposta_chatbot = resposta_chatbot + 'Desculpe, eu não entendi.'
     return resposta_chatbot
   else:
     resposta_chatbot = resposta_chatbot + lista_sentencas[indice_sentenca]
     return resposta_chatbot
 
+
 def conversar():
     continuar = True
-    print('Olá, sou um chatbot e vou responder perguntas sobre o Instituto de Letras: ')
+    print('Olá, eu sou o Babel, o chatbot do Instituto de Letras. Eu posso responder perguntas relacionadas à graduação como:'
+          '\nCalendário Acadêmico;'
+          '\nConcessão de Créditos;'
+          '\nMatrícula;'
+          '\nMonitoria;'
+          '\nMenção;'
+          '\nEmissão de documentos;'
+          '\nAtendimento com Coordenadores.'
+          '\nDigite "tchau" para sair.')
     while continuar == True:
         texto_usuario = input()
         texto_usuario = texto_usuario.lower()
-        if texto_usuario != 'sair':
+        if texto_usuario != 'tchau':
             if responder_saudacao(texto_usuario) != None:
-                print('Chatbot: ' + responder_saudacao(texto_usuario))
+                print('Babel: ' + responder_saudacao(texto_usuario))
             else:
-                print('Chatbot: ')
+                print('Babel: ')
                 print(responder(preprocessamento(texto_usuario)))
                 lista_sentencas_preprocessada.remove(preprocessamento(texto_usuario))
         else:
             continuar = False
-    print('Chatbot: Até breve!')
+    print('Babel: Até mais!')
 conversar()
